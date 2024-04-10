@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% if object%}
+    <h1>Edit <span class="teal-text">{{ object.name }}</span></h1>
+{% else %}
+    <h1>Add Finch</h1>
+{% endif %}
+
+<form action="" method="POST">
+    {% csrf_token %}
+    <table>
+        {{ form.as_table }}
+    </table>
+    {% if object %}
+    <input type="submit" value="Create Finch" class="btn">
+    {% else %}
+    <input type="submit" value="Update Finch" class="btn">
+    {% endif %}
+</form>
+{% endblock %}
